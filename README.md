@@ -62,10 +62,10 @@ Not seeing anything in your html?
 
 It can be helpful to think of a directive as a self contained route: Wherever you place that directive, it will display the html template you have given it. Restrict determines how you can use the directive in your DOM.
 
-*There are three options: 
-..*`'E'`: Element 
-..*`'A'`: Attribute
-..*`'C'`: Class
+* There are three options: 
+  * `'E'`: Element 
+  * `'A'`: Attribute
+  * `'C'`: Class
 
 For instance: A directive that has `restrict: 'E'` (note that 'E' is a string) can only be used in your html as an element, like we have above.
 

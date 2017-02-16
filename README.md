@@ -46,7 +46,7 @@ Now, test your directive and make sure it works!
 2. In `lessonDirective.js` create a property called "templateUrl:"
 3. Point the templateUrl to your newly created `lessonHider.html`.' 
 4. Add the directive to our `index.html` to see if it works.
-  *Remember that directives are converted to snake-case in
+  * Remember that directives are converted to snake-case in
 html.
 
 #### Tips/Help:

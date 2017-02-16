@@ -49,7 +49,7 @@ Now, test your directive and make sure it works!
   * Remember that directives are converted to snake-case in
 html.
 
-### Tips/Help:
+#### Tips/Help:
 Not seeing anything in your html?
 * Your directive in your html should look like this: `<lesson-hider></lesson-hider>`
 * Did you remember to add your `lessonHider.js` to your `index.html`?
@@ -107,7 +107,7 @@ angular.module('directivePractice')
 });
 ```
 
-### More Information on Link:
+#### More Information on Link:
 Unlike dependency injection used elsewhere in Angular these parameter names don't carry specific meaning. The first parameter represents the `$scope` of your directive, the second is the html element that wraps your directive, and the third is an object containing all the properties and values of the attributes on your directive in the DOM.
 
 Remember that data is passed to directives through attributes on the element. So in our html let's add an attribute named `my-test` and give it a value of `Hello there!`. Just like this: `<lesson-hider my-test="Hello there!"></lesson-hider>`

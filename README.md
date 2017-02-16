@@ -41,10 +41,10 @@ angular.module('directivePractice')
 ### 2.2: Test `lessonDirective.js`
 
 Now, test your directive and make sure it works! 
-1.  Create a new file named `lessonHider.html` and adding some text.
-2.  In `lessonDirective.js` create a property called "templateUrl:"
-3.  Point the templateUrl to your newly created `lessonHider.html`.' 
-4.  Add the directive to our `index.html` to see if it works. 
+1. Create a new file named `lessonHider.html` and adding some text.
+2. In `lessonDirective.js` create a property called "templateUrl:"
+3. Point the templateUrl to your newly created `lessonHider.html`.' 
+4. Add the directive to our `index.html` to see if it works. 
   *Remember that directives are converted to snake-case in
 html.
 

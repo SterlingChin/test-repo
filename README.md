@@ -45,16 +45,9 @@ Now, test your directive and make sure it works!
 1. Create a new file named `lessonHider.html` and adding some text.
 2. In `lessonDirective.js` create a property called "templateUrl:"
 3. Point the templateUrl to your newly created `lessonHider.html`.' 
-4. Add the directive to our `index.html` to see if it works. 
+4. Add the directive to our `index.html` to see if it works.
   *Remember that directives are converted to snake-case in
 html.
-
-1. First ordered list item
-2. Another item
-  * Unordered sub-list. 
-1. Actual numbers don't matter, just that it's a number
-  1. Ordered sub-list
-4. And another item.
 
 #### Tips/Help:
 Not seeing anything in your html?

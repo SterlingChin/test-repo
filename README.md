@@ -48,6 +48,12 @@ Now, test your directive and make sure it works!
   *Remember that directives are converted to snake-case in
 html.
 
+1. First ordered list item
+2. Another item
+⋅⋅* Unordered sub-list. 
+1. Actual numbers don't matter, just that it's a number
+⋅⋅1. Ordered sub-list
+4. And another item.
 
 #### Tips/Help:
 Not seeing anything in your html?

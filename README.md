@@ -42,14 +42,14 @@ angular.module('directivePractice')
 
 Now, test your directive and make sure it works! 
 
-1. Create a new file named `lessonHider.html` and adding some text.
-2. In `lessonDirective.js` create a property called "templateUrl:"
-3. Point the templateUrl to your newly created `lessonHider.html`.' 
-4. Add the directive to our `index.html` to see if it works.
+1.  Create a new file named `lessonHider.html` and adding some text.
+2.  In `lessonDirective.js` create a property called "templateUrl:"
+3.  Point the templateUrl to your newly created `lessonHider.html`.' 
+4.  Add the directive to our `index.html` to see if it works. 
   * Remember that directives are converted to snake-case in
 html.
 
-#### Tips/Help:
+### Tips/Help:
 Not seeing anything in your html?
 * Your directive in your html should look like this: `<lesson-hider></lesson-hider>`
 * Did you remember to add your `lessonHider.js` to your `index.html`?
@@ -90,7 +90,7 @@ So far our directive is displaying some text, but it isn't doing much else, so l
 
 * Inside of your `lessonDirective.js` add another property to your return object called `link` and
 give it the value of a function. 
-..* The link method will always be passed three parameters: `scope`, `element`, and `attributes`, in that order. At this point your directive should look like this:
+  * The link method will always be passed three parameters: `scope`, `element`, and `attributes`, in that order. At this point your directive should look like this:
 
 ```javascript
 angular.module('directivePractice')
@@ -107,16 +107,19 @@ angular.module('directivePractice')
 });
 ```
 
-#### More Information on Link:
+### More Information on Link:
 Unlike dependency injection used elsewhere in Angular these parameter names don't carry specific meaning. The first parameter represents the `$scope` of your directive, the second is the html element that wraps your directive, and the third is an object containing all the properties and values of the attributes on your directive in the DOM.
 
 Remember that data is passed to directives through attributes on the element. So in our html let's add an attribute named `my-test` and give it a value of `Hello there!`. Just like this: `<lesson-hider my-test="Hello there!"></lesson-hider>`
 
 ### 3.3 Testing the Link function
+
 * `console.log()` the three parameters
+
 Inside of your `link` method console log the three parameters (scope, element, attributes), check out the console, and see what we're getting. The scope will log out an object containing Angular properties, the element will log out the actual DOM element itself, and you will be able to see that the attrs logs out your 'myTest' attribute and value. You can also see that Angular has done its magic in converting the snake-case in your html to camelCase.
 
 Once you're done browsing through the results of your `console.log()` feel free to remove it and the my-test attribute before we move on to the next step. We won't be using them anymore.
+
 * Remove the `console.log()` and the my-test attribute
 
 ## Step 4: Isolating scope
@@ -178,32 +181,35 @@ value is passed to that attribute.
 There are a few ways to demonstrate two way binding: 
 
 * Create `$scope.test` in `lessonCtrl`
-..* give it the string: `'Two-way data binding!'`
+  * give it the string: `'Two-way data binding!'`
 * Add `{{ test }}` to a new `<div>` inside our index.html. 
-..*You should see your page update with 'Two way data binding!'. 
+  *You should see your page update with 'Two way data binding!'. 
 
 To get this to display inside of our directive as well, we need to add an attribute to our directive inside our index.html. 
+
 * Add the `lesson` attribute to our directive and pass it the value `'test'`. 
-..* Reference back to the previous section where you used the `my-test` attribute.
+  * Reference back to the previous section where you used the `my-test` attribute.
 
 Now all we need to do to display our string is add it to the `lessonHider` template. 
+
 * Add `{{ lesson }}` inside of `lessonHider.html`
-..* You should see a second 'Two way data binding!' show up on your page. The reason we use 'lesson' here instead of 'test' is because our directive can no longer talk to our controller. It only knows the values we give it, and we have passed `$scope.test` to our directive's `lesson` attribute, so we can only access it by `lesson`.
+  * You should see a second 'Two way data binding!' show up on your page. The reason we use 'lesson' here instead of 'test' is because our directive can no longer talk to our controller. It only knows the values we give it, and we have passed `$scope.test` to our directive's `lesson` attribute, so we can only access it by `lesson`.
 
 There is only one more step to demonstrate two-way data binding. 
+
 * Create an input box inside of our directive 
-..* Give it an `ng-model` of `lesson`. 
-..* Now by typing in the input box you can see that the changes you make affect both `$scope.test` AND `lesson`!
+  * Give it an `ng-model` of `lesson`. 
+  * Now by typing in the input box you can see that the changes you make affect both `$scope.test` AND `lesson`!
 
 ## Step 5: Adding even more functionality!
 
 So now we know how to set up the basic layout of a directive, give it a template, isolate the scope, and pass it data! Pretty impressive, but we aren't done yet. Our directive still doesn't really DO much. So let's fix that now.
 
 ### 5.1 ng-repeat over lessons
-* Wrap directive (in our index.html) in a `<ul>` tag and add an `ng-repeat`. 
-..* This will repeat over the lessons array in your `lessonCtrl`. 
-..* Don't worry! `ng-repeat` will work on our directive just like it would on any other element. 
 
+* Wrap directive (in our index.html) in a `<ul>` tag and add an `ng-repeat`. 
+  * This will repeat over the lessons array in your `lessonCtrl`. 
+  * Don't worry! `ng-repeat` will work on our directive just like it would on any other element. 
 * Pass each lesson in the array to our `lesson` attribute on the directive.
 
 `index.html`:
@@ -222,20 +228,22 @@ For formatting purposes we'll also want to add `<li>` tags to our lessonHider.ht
 
 You should see a list of all the different lessons from your lessons array. 
 
-### 5.2 Add a controller IN the directive
+### 5.2 Add a controller **_in_** the directive
+
 * Add the key `controller:` to our directive's return object and give it the value of a function. 
-..* Inject `$scope` and `lessonService`
+  * Inject `$scope` and `lessonService`
 
 This may seem a little strange, but we can treat this controller the same way as we do any other controller we are used to using. The only difference is that this controller can only apply to this directive. This controller is the same as what we are used to working with!
 
 * Create a method in your `lessonService` named `getSchedule` that returns a GET request to your
 schedule.json 
-..* You probably haven't done an $http request to one of your own files before, but it works just the same. `return $http.get('schedule.json');` If you have nested your files, make sure to include the path to the file.
+  * You probably haven't done an $http request to one of your own files before, but it works just the same. `return $http.get('schedule.json');` If you have nested your files, make sure to include the path to the file.
 
 ### 5.3 Access the controller
 Because we've injected `lessonService` into our directive's controller we can now access that function in the same way we are used to in other controllers.
+
 * Assign the return value of `lessonService.getSchedule()` to a new value called `$scope.getSchedule`. 
-..*You may have noticed that we still haven't called a `.then` yet--we're almost there!
+  *You may have noticed that we still haven't called a `.then` yet--we're almost there!
 
 Reminder: If you've forgotten along the way what our directive is going to be doing, we want to check whether a lesson is already in the schedule, and if it is, we will cross it out.
 
@@ -315,14 +323,16 @@ angular.module('directivePractice')
 What if the user wants to know on which day a lesson would be active? Right now all they know is that some lessons are active somewhere in the schedule. Let's fix this!
 
 ### 7.1 Adding functionality
-* Add a new property onto our directive's scope object. 
-..* Call this property `dayAlert`. 
-..* Pass this property a function. Remember that we want to use the `'&'` instead of the `'='`. 
 
-Now that we have that property on our directive's scope object, we need to give it a value (function), 
+* Add a new property onto our directive's scope object. 
+  * Call this property `dayAlert`. 
+  * Pass this property a function. Remember that we want to use the `'&'` instead of the `'='`. 
+
+Now that we have that property on our directive's scope object, we need to give it a value (function):
+
 * Go back to our `lessonCtrl` and write a new function named `announceDay()`. 
-..* It should take two parameters: lesson and day. 
-..* It should alert `lesson + ' is active on ' + day + '.'`.
+  * It should take two parameters: lesson and day. 
+  * It should alert `lesson + ' is active on ' + day + '.'`.
 
 Our next step is to pass this new function as an attribute on our directive. Don't forget that Angular will swap camelCase (from your directive's scope object) to snake-case in your html! The directive element inside your index.html should now look something like this:
 
@@ -334,16 +344,18 @@ Now that we have access to our new function inside of our directive we need to c
 
 ### 7.2 Save a reference to the lesson's day on our scope. 
 Inside our link function's `if` statement:
+
 * Create a new property called `scope.lessonDay`  
-..* Set it equal to the day in the scheduleDay's `weekday` property. 
+  * Set it equal to the day in the scheduleDay's `weekday` property. 
 
 ### 7.3 Make `dayAlert` available to the user
 
 Inside our directive's template: 
+
 * Add a button element
 * Give that element an ng-click attribute with the value of `ng-click="dayAlert({ lesson: lesson,
 day: lessonDay })"`. 
-..*This syntax is a little strange, but it is just a quirk of directives.
+  *This syntax is a little strange, but it is just a quirk of directives.
 
 We pass the function call a single object with key names that match the parameter names we gave `day-alert` in our html and then give those keys the values of the arguments we would like to pass to the function. In this case we want to pass our `scope.lesson` property as the first argument to `lesson` and our `scope.lessonDay` property as the second argument that will be passed to `day`.
 
@@ -352,11 +364,12 @@ Congratulations! You have written a new custom directive that utilizes the restr
 ## Step 8: Additional Practice Steps
 
 Directives can be a lot to wrap your head around, so here are a few options to familiarize yourself further:
+
 * Fix `dayAlert()`
-..* Currently alerts `'Lesson is active on undefined'` if we select a lesson that's not in the schedule.
+  * Currently alerts `'Lesson is active on undefined'` if we select a lesson that's not in the schedule.
 * Add a checkbox to toggle whether lessons in the schedule are crossed out or not.
 * Allow users to remove lessons from the schedule 
-..* Have your directive update when a lesson is removed.
+  * Have your directive update when a lesson is removed.
 
 ## Contributions
 
@@ -370,3 +383,4 @@ prohibited. Excerpts and links may be used, provided that full and clear credit 
 content.
 
 <img src="https://devmounta.in/img/logowhiteblue.png" width="250">
+

@@ -49,12 +49,13 @@ Now, test your directive and make sure it works!
   * Remember that directives are converted to snake-case in
 html.
 
-#### Tips/Help:
+#### _Tips/Help:_
 Not seeing anything in your html?
 * Your directive in your html should look like this: `<lesson-hider></lesson-hider>`
 * Did you remember to add your `lessonHider.js` to your `index.html`?
 * Did you convert your directive to snake-case?
 * Is the file path in your templateUrl property correct?
+
 
 ### 2.3: Restrict your directive
 
@@ -107,10 +108,11 @@ angular.module('directivePractice')
 });
 ```
 
-#### More Information on Link:
+#### _More Information on Link:_
 Unlike dependency injection used elsewhere in Angular these parameter names don't carry specific meaning. The first parameter represents the `$scope` of your directive, the second is the html element that wraps your directive, and the third is an object containing all the properties and values of the attributes on your directive in the DOM.
 
 Remember that data is passed to directives through attributes on the element. So in our html let's add an attribute named `my-test` and give it a value of `Hello there!`. Just like this: `<lesson-hider my-test="Hello there!"></lesson-hider>`
+
 
 ### 3.3 Testing the Link function
 
@@ -121,6 +123,7 @@ Inside of your `link` method console log the three parameters (scope, element, a
 Once you're done browsing through the results of your `console.log()` feel free to remove it and the my-test attribute before we move on to the next step. We won't be using them anymore.
 
 * Remove the `console.log()` and the my-test attribute
+
 
 ## Step 4: Isolating scope
 

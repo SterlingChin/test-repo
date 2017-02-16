@@ -42,10 +42,10 @@ angular.module('directivePractice')
 
 Now, test your directive and make sure it works! 
 
-1.  Create a new file named `lessonHider.html` and adding some text.
-2.  In `lessonDirective.js` create a property called "templateUrl:"
-3.  Point the templateUrl to your newly created `lessonHider.html`.' 
-4.  Add the directive to our `index.html` to see if it works. 
+* Create a new file named `lessonHider.html` and adding some text.
+* In `lessonDirective.js` create a property called "templateUrl:"
+* Point the templateUrl to your newly created `lessonHider.html`.' 
+* Add the directive to our `index.html` to see if it works. 
   * Remember that directives are converted to snake-case in
 html.
 
@@ -64,6 +64,7 @@ Not seeing anything in your html?
   * `'E'`: Element 
   * `'A'`: Attribute
   * `'C'`: Class
+* In this situation, you will restrict to an html element
 
 It can be helpful to think of a directive as a self contained route: Wherever you place that directive, it will display the html template you have given it. Restrict determines how you can use the directive in your DOM.
 
